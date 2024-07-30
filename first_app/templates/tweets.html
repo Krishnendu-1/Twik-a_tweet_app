@@ -1,0 +1,43 @@
+{% extends 'first.html' %}
+{% load static %}
+<!-- this extends to first.html and shows the data under "block" -->
+{% block title %}
+   Twik
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>Welcome to Twik!</h1>
+    <h2>All tweets will show here</h2>
+
+    <a class="btn btn-primary mt-4 mb-3" href="{% url 'addTweet' %}">Create new tweet</a>
+   <div class="container row gap-4">
+    {% for i in tweets %}
+    <div class="card" style="width: 18rem;">
+      {% if i.photo %}
+      <img src="{{i.photo.url}}" class="card-img-top pt-3">
+      {% else %}
+      <img src="{% static 'images/img.jpg' %}" class="card-img-top pt-3">
+      {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{i.user.username}}</h5>
+          <p class="card-text">{{i.text}}</p>
+          
+          
+          {% if i.user == user %} <!--the user.id in the current "tweets" object is "me", if my user.id==current user.id then only it shows the buttons
+          if i.user!=user means, if the current user is not me then shows buttons for another perosn-->
+          <a class="btn btn-warning" href="{% url 'edit_tweet' i.id  %}" class="btn btn-primary">Edit</a>
+          <a class="btn btn-danger" href="{% url 'delete_tweet' i.id %}" class="btn btn-primary">Delete</a>
+          {% endif %}
+            
+            
+          
+        </div>
+      </div>
+    {% endfor %}
+   </div>
+        
+{% endblock  %}
+    
+    

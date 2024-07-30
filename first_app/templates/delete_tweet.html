@@ -1,0 +1,18 @@
+{% extends 'first.html' %}
+<!-- this extends to first.html and shows the data under "block" -->
+{% block title %}
+   Twik
+{% endblock %}
+
+
+{% block content %}
+    <h1>Delete Tweet! sure?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <button class="btn btn-info" type="button" ><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Cancel</a></button>
+    </form>
+
+{% endblock  %}
+    
+    

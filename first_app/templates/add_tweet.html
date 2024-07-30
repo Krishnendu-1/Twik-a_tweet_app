@@ -1,0 +1,27 @@
+{% extends 'first.html' %}
+<!-- this extends to first.html and shows the data under "block" -->
+{% block title %}
+{% if form.instance.pk %} 
+Edit tweet
+{% else %}
+Add tweet
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+    {% if form.instance.pk %} <!--if the 'instance' is primary key('id' is coming) then edit or else add(when id is not coming on click)-->
+   <h1> Edit Tweet📜📎</h1>
+    {% else %}
+    <h1>Create Tweet 📝✍🏻</h1>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} <!--This will auto work on submit and add tweet-->
+        {{form}}
+        <button class="btn btn-primary p-2" type="submit">Add</button>
+    </form>
+
+{% endblock  %}
+    
+    
