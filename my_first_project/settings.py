@@ -24,7 +24,8 @@ SECRET_KEY = 'django-insecure-^^61f29rd04h#)_g2r^is%i9u_#sq&j^+#u8a8$@$_7cjw@(&$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+# ALLOWED_HOSTS = ['.vercel.app']--> vercel dont support sqlite3
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition

@@ -15,4 +15,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_first_project.settings')
 
 application = get_wsgi_application()
 
-app=application#to bridge between vercel "app" and our "application" 
