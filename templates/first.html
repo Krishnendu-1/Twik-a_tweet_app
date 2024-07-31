@@ -10,17 +10,17 @@
     </title>
     <style>
       ::selection{
-        background-color:coral;
-        color:black;
+        user-select: none;
       }
     </style>
 </head>
 </body >
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: fixed;z-index: 100; width: 100%;">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}">Twik</a>
-      <div style="display: flex; justify-content: end;" >
+      <div style="display: flex; justify-content: end; align-items: center; " >
           {% if user.is_authenticated %}
+          <span style="padding-right: 1em; font-size: 1.1rem;">Welcome! <i class=" text-center" style=" font-weight: bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{user.username}}</i> </span>
           <!-- <a class=" btn btn-danger text-center" href="{% url 'logout' %}">Log out</a> --><!--In Django remember "Logout" is a "form" not a "button" or "link" -->
           <form method="post" action="{% url 'logout' %}">
             {% csrf_token %} <!--whenever "form" in Django is used, "csrf" token is "compulsory"-->
@@ -28,8 +28,10 @@
           </form>
           
           {% else %}
-          <a class=" btn btn-warning text-center" href="{% url 'login' %}" type="submit">Login</a>
+          <div style="gap: 5;">
+            <a class=" btn btn-warning text-center" href="{% url 'login' %}" type="submit">Login</a>
           <a class=" btn btn-info text-center" href="{% url 'registration' %}" type="submit">Register</a>
+          </div>
           {% endif %}
         
       </div>

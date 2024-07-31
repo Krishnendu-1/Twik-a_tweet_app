@@ -16,10 +16,13 @@ Add tweet
     <h1>Create Tweet 📝✍🏻</h1>
     {% endif %}
 
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" class=" text-center"><!--so that the image file is selected from device -->
         {% csrf_token %} <!--This will auto work on submit and add tweet-->
         {{form}}
+        <div style="padding:1.2em;gap:6;" >
         <button class="btn btn-primary p-2" type="submit">Add</button>
+        <button class="btn btn-info" type="button" ><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Cancel</a></button>
+        </div>
     </form>
 
 {% endblock  %}
