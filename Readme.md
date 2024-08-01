@@ -20,28 +20,30 @@
 **_Installation_:**
 
 To set up the project, follow these steps:
+# All the commands should be run in `sh`(bash,command prompt,windows powershell etc.) under the project tree
 
 **Clone the repository:**
-*sh*
-**git clone https://github.com/Krishnendu-1/Twik-a_tweet_app
-cd Twik-a_tweet_app**
+
+**`git clone https://github.com/Krishnendu-1/Twik-a_tweet_app`
+`cd Twik-a_tweet_app`**
 
 **Create a virtual environment and activate it:**
-*sh*
-**python -m venv env
-source env/bin/activate  # On Windows use `env\Scripts\activate`**
+
+**`python -m venv virtual_env`**
+**#On Windows use `virtual_env\Scripts\activate.bat` 
+  #On mac/unix use `source env/bin/activate.bat`**
 
 **Install the required packages:**
-*sh*
-**pip install -r requirements.txt**
+
+**`pip install -r requirements.txt`**
 
 **Apply migrations:**
-*sh*
-**python manage.py migrate**
+
+**`python manage.py migrate`**
 
 **Run the development server:**
-*sh*
-**python manage.py runserver**
+
+**`python manage.py runserver`**
 
 **_Congrats!_**
 
