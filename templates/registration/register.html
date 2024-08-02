@@ -1,13 +1,55 @@
-{% extends 'first.html' %}
-
-
-{% block content %}
+{% extends 'first.html' %} {% load widget_tweaks %} {% block content %}
 <h2>Register form</h2>
-<div style="display: flex;justify-content: center; align-items: center; ">
+<div
+  class="container"
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+  "
+>
+  <div
+    class="card shadow-lg p-2 mb-3 bg-body-tertiary rounded"
+    style="width: fit-content; height: fit-content; margin: 1.2rem"
+  >
     <form action="" method="post">
-        {% csrf_token %}
-        {{form}}
-        <button class="btn btn-primary" type="submit">Register</button>
+      {% csrf_token %}
+
+      <div
+        style="
+          padding-bottom: 1.2rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          row-gap: 1.2rem;
+        "
+      >
+        <div class="form-group">
+          {% render_field form.username type="text" class="form-control"
+          id="exampleInputUsername" placeholder="Username" %}
+        </div>
+        <div class="form-group">
+          {% render_field form.email type="email" class="form-control"
+          id="Emailfield" placeholder="Email" %}
+        </div>
+        <div class="form-group">
+          {% render_field form.password1 type="password" class="form-control"
+          id="id_Password1" placeholder="Password" %}
+        </div>
+        <div class="form-group">
+          {% render_field form.password2 type="password" class="form-control"
+          id="id_Password2" placeholder="Confirm Password" %}
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Register</button>
     </form>
+  </div>
+  <p>
+    Have an account <a href="{% url 'login' %}" class="btn btn-info">Login</a>
+  </p>
 </div>
-{% endblock  %}
+{% endblock %}
